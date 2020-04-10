@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/index.css" />
+    <title>Fetch Github API</title>
+  </head>
+
+  <body class="container center">
+    <h1>My Repositories:</h1>
+    <div>
+      <ul id="repo-list"></ul>
+    </div>
+    <hr />
+    <div>
+      <form id="new-repo-form">
+        <div class="form-group">
+          <label for="name-repo">New Repository</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name-repo"
+            placeholder="Repository Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="url-repo">URL</label>
+          <input
+            type="text"
+            class="form-control"
+            id="url-repo"
+            placeholder="URL"
+          />
+        </div>
+        <div class="form-group">
+          <label for="desc-repo">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="url-repo"
+            placeholder="Description"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
