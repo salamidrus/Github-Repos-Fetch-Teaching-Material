@@ -52,11 +52,45 @@ document.addEventListener("DOMContentLoaded", () => {
       // Build a callback function
       function deleteRepo() {
         const url = `http://localhost:3000/repo/${r.id}`;
-        const reqObj = { method: "DELETE" };
+        const reqObj = {
+          method: "DELETE",
+        };
         fetch(url, reqObj).then(repoLi.remove());
       }
     }
   }
+
+  // form to post
+  const form = document.querySelector("#new-repo-form");
+  form.addEventListener("submit", (e) => postRepo(e));
+
+  function postRepo(e) {
+    e.preventDefault();
+
+    const newName = document.querySelector("#name-repo").value;
+    const urlRepo = document.querySelector("#url-repo").value;
+    const description = document.querySelector("#desc-repo").value;
+
+    const url = "http://localhost:3000/repo";
+    const reqObj = {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        name: newName,
+        url: urlRepo,
+        description: description,
+      }),
+    };
+
+    fetch(url, reqObj)
+      .then((response) => response.json())
+      .then((repo) => {
+        renderRepos(repo);
+      });
+  }
+
   // Call the function that will automatically run renderQuote()
   fetchData();
 });
